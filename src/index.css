@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: 'Fredoka One', cursive;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(80vh); /* drift downward */
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh); /* disappear at bottom */
+    opacity: 0;
+  }
+}
+
+.animate-float {
+  animation: float 6s linear forwards;
+}
