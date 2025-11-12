@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function Cat() {
+export default function Cat({ onClick, className = "" }) {
   const [position, setPosition] = useState({
     x: Math.random() * 90,
     y: Math.random() * 90,
@@ -11,7 +11,7 @@ export default function Cat() {
     const interval = setInterval(() => {
       setPosition({ x: Math.random() * 90, y: Math.random() * 90 });
       setRotation(Math.random() * 360);
-    }, 3000);
+    }, 3000); // Move every 3 seconds
     return () => clearInterval(interval);
   }, []);
 
@@ -19,12 +19,13 @@ export default function Cat() {
     <img
       src="https://i.pinimg.com/736x/dc/e8/59/dce8591bf187016ffb24b291f8cf15e5.jpg"
       alt="fun cat"
-      className="w-16 h-16 absolute transition-all duration-1000 z-0 pointer-events-none"
+      className={`w-16 h-16 absolute transition-all duration-1000 ${className}`}
       style={{
         top: `${position.y}%`,
         left: `${position.x}%`,
         transform: `rotate(${rotation}deg)`,
       }}
+      onClick={onClick} // Cat click handler
     />
   );
 }
