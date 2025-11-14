@@ -1,9 +1,25 @@
+/* ------------------------------------------ */
+/* Base layout styling                        */
+/* ------------------------------------------ */
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
+
+/* Make sure the app is full-screen and no scrollbars */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* prevents scrolling when emojis float */
+}
+
+/* ------------------------------------------ */
+/* Optional     (original template)           */
+/* ------------------------------------------ */
 
 @keyframes logo-spin {
   from {
@@ -20,11 +36,19 @@
   }
 }
 
-/* Optional styling for future use */
 .card {
   padding: 2em;
 }
 
 .read-the-docs {
   color: #888;
+}
+
+/* ------------------------------------------ */
+/* Floating emoji animation                    */
+/* ------------------------------------------ */
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-120vh); opacity: 0; }
 }
